@@ -18,9 +18,9 @@ const useFetchHeroes = (): UseFetchHeroesResult => {
             try {
                 const heroesData = await callApi<Hero[]>('heroes');
                 setHeroes(heroesData);
-                setLoading(false);
             } catch (error) {
                 setError('Failed to fetch heroes.');
+            } finally {
                 setLoading(false);
             }
         };
