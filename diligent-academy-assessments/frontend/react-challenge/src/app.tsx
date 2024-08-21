@@ -1,4 +1,4 @@
-import HeroesList from "./heroes-list";
+import HeroesList from "./hero-list/heroes-list";
 
 function App() {
 

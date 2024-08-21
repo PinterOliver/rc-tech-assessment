@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { callApi } from './call-api';
+import React, {useEffect, useState} from 'react';
+import {callApi} from '../call-api';
 
 interface Hero {
     id: number;
@@ -23,18 +23,18 @@ function HeroesList() {
         fetchHeroes();
     }, []);
 
-  return (
-    <>
-      <h2>Heroes</h2>
-        <ul>
-            {heroes.map((hero) => (
-                <li key={hero.id}>
-                    {hero.name}{hero.available ? ' "Available"' : ''}
-                </li>
-            ))}
-        </ul>
-    </>
-  );
+    return (
+        <>
+            <h2>Heroes</h2>
+            <ul>
+                {heroes.map((hero) => (
+                    <li key={hero.id}>
+                        {hero.name}{hero.available ? ' "Available"' : ''}
+                    </li>
+                ))}
+            </ul>
+        </>
+    );
 }
 
 export default HeroesList;
