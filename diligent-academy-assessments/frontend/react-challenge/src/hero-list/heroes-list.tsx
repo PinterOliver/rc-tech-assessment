@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {callApi} from '../call-api';
 import HeroListItem from './hero-list-item';
 import {Hero} from '../types';
+import ErrorMessage from '../error-message';
 
 function HeroesList() {
     const [heroes, setHeroes] = useState<Hero[]>([]);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function fetchHeroes() {
@@ -13,6 +15,7 @@ function HeroesList() {
                 setHeroes(heroesData);
             } catch (error) {
                 console.error('Failed to fetch heroes: ', error);
+                setError('Failed to fetch heroes.');
             }
         }
 
@@ -33,6 +36,10 @@ function HeroesList() {
             return updatedHeroes;
         });
     };
+
+    if (error) {
+        return <ErrorMessage message={error}/>;
+    }
 
     return (
         <>
