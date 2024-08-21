@@ -20,11 +20,18 @@ function HeroesList() {
     }, []);
 
     const toggleAvailability = (id: number) => {
-        setHeroes((prevHeroes) =>
-            prevHeroes.map((hero) =>
-                hero.id === id ? {...hero, available: !hero.available} : hero
-            )
-        );
+        setHeroes((prevHeroes) => {
+            const heroIndex = prevHeroes.findIndex((hero) => hero.id === id);
+            if (heroIndex === -1) return prevHeroes;
+
+            const updatedHeroes = [...prevHeroes];
+            updatedHeroes[heroIndex] = {
+                ...updatedHeroes[heroIndex],
+                available: !updatedHeroes[heroIndex].available,
+            };
+
+            return updatedHeroes;
+        });
     };
 
     return (
