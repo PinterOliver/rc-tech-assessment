@@ -1,3 +1,6 @@
+# Data of Tester
+Name: Pintér Olivér Péter
+
 # rc-tech-assessment
 ARC tech assessment libraries
 Budapest site - Audit, Risk and Compliance pillar.
