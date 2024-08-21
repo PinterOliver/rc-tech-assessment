@@ -3,9 +3,11 @@ import {callApi} from '../call-api';
 import HeroListItem from './hero-list-item';
 import {Hero} from '../types';
 import ErrorMessage from '../error-message';
+import LoadingMessage from '../loading-message';
 
 function HeroesList() {
     const [heroes, setHeroes] = useState<Hero[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
@@ -13,9 +15,10 @@ function HeroesList() {
             try {
                 const heroesData = await callApi<Hero[]>('heroes');
                 setHeroes(heroesData);
+                setLoading(false);
             } catch (error) {
-                console.error('Failed to fetch heroes: ', error);
                 setError('Failed to fetch heroes.');
+                setLoading(false);
             }
         }
 
@@ -36,6 +39,10 @@ function HeroesList() {
             return updatedHeroes;
         });
     };
+
+    if (loading) {
+        return <LoadingMessage/>;
+    }
 
     if (error) {
         return <ErrorMessage message={error}/>;
