@@ -1,0 +1,53 @@
+/* Center the #main container in the middle of the page */
+#main {
+    width: 50vw;
+    margin: auto;
+}
+
+/* Center the page content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the hero list */
+.hero-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for each hero item */
+.hero-list-item {
+    color: #208001;
+    border-radius: 8px;
+    width: 30%;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Style for the availability status */
+.hero-availability {
+    font-size: 0.8em;
+    color: #208001;
+}
+
+/* Style for loading and error messages */
+.message {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.loading {
+    color: #208001;
+}
+
+.error {
+    color: red;
+}
