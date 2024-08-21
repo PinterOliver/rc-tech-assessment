@@ -1,11 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {callApi} from '../call-api';
-
-interface Hero {
-    id: number;
-    name: string;
-    available: boolean;
-}
+import HeroListItem from './hero-list-item';
+import {Hero} from '../types';
 
 function HeroesList() {
     const [heroes, setHeroes] = useState<Hero[]>([]);
