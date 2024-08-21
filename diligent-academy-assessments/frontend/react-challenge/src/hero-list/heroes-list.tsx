@@ -24,9 +24,7 @@ function HeroesList() {
             <h2>Heroes</h2>
             <ul>
                 {heroes.map((hero) => (
-                    <li key={hero.id}>
-                        {hero.name}{hero.available ? ' "Available"' : ''}
-                    </li>
+                    <HeroListItem key={hero.id} hero={hero}/>
                 ))}
             </ul>
         </>
