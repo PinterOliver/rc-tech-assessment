@@ -1,5 +1,6 @@
 import React from 'react';
 import {Hero} from '../types';
+import '../styles.css';
 
 interface HeroListItemProps {
     hero: Hero;
@@ -8,8 +9,15 @@ interface HeroListItemProps {
 
 const HeroListItem: React.FC<HeroListItemProps> = ({hero, onToggle}) => {
     return (
-        <li onClick={() => onToggle(hero.id)} style={{cursor: 'pointer'}}>
-            {hero.name}{hero.available ? ' "Available"' : ''}
+        <li
+            className="hero-list-item"
+            onClick={() => onToggle(hero.id)}
+        >
+            <div>
+                <span>{hero.id}. </span>
+                <span>{hero.name}</span>
+                <span className="hero-availability">{hero.available ? ' "Available"' : ''}</span>
+            </div>
         </li>
     );
 };

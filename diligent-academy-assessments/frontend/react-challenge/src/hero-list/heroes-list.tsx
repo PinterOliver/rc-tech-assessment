@@ -4,6 +4,7 @@ import HeroListItem from './hero-list-item';
 import {Hero} from '../types';
 import ErrorMessage from '../error-message';
 import LoadingMessage from '../loading-message';
+import '../styles.css'; // Import the global CSS file
 
 function HeroesList() {
     const [heroes, setHeroes] = useState<Hero[]>([]);
@@ -49,14 +50,16 @@ function HeroesList() {
     }
 
     return (
-        <>
+        <div>
             <h2>Heroes</h2>
-            <ul>
-                {heroes.map((hero) => (
-                    <HeroListItem key={hero.id} hero={hero} onToggle={toggleAvailability}/>
-                ))}
-            </ul>
-        </>
+            <div className="container">
+                <ul className="hero-list">
+                    {heroes.map((hero) => (
+                        <HeroListItem key={hero.id} hero={hero} onToggle={toggleAvailability}/>
+                    ))}
+                </ul>
+            </div>
+        </div>
     );
 }
 
